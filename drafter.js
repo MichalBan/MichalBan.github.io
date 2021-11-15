@@ -108,6 +108,12 @@
 	var titleHTML = "";
 	var allclicked = false;
 	
+	allCivsString = "";
+	$.each(allCivs, function (index, value) {
+		allCivsString = allCivsString + "." + index + ", ";
+	});
+	allCivsString = allCivsString.slice(0, -1);
+	
 	// toggle disable or enabled civ
 	$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Bolivia, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .Chile, .China, .Cuba, .Czech, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maori, .Maya, .Mexican, .Mongolia, .Cordoba, .Morocco, .Netherlands, .NewZealand, .Normandy, .Norway, .Nubia, .Oman, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").bind('click', toggleState)
 	
