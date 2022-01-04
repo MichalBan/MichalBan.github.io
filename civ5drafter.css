@@ -126,6 +126,20 @@ input, select {
 	text-align: center;
 }
 
+#credits {
+	font-family: Montserrat;
+	font-size: 15px;
+	color: #ffffff;
+	margin: auto;
+	padding-top: 60px;
+	padding-bottom: 20px;
+	top: 770px;
+	left: 50%;
+    width: 750px;
+    height: 50px;
+	text-align: center;
+}
+
 .nqonlybox {
 	
 }
