@@ -1,1 +1,1 @@
-This is a copy of https://github.com/HellBlazer-TV/HellBlazer-TV.github.io modified for Lovemod. All credits go to [**HellBlazer-TV**](https://github.com/HellBlazer-TV)
+Based on https://github.com/HellBlazer-TV/HellBlazer-TV.github.io by [**HellBlazer-TV**](https://github.com/HellBlazer-TV)
