@@ -20,7 +20,7 @@ body {
 }
 
 .headline {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 20px;
 	text-align: center;
 	color: #ffffff;
@@ -28,7 +28,7 @@ body {
 
 ul li {
   	list-style: none;
-  	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 15px;
 	left: 100px;
 	color: #ffffff;
@@ -70,15 +70,19 @@ input, select {
 #civselections {
 	border: 1px solid #ffffff;
 	border-radius: 25px;
-	margin: auto;
-	margin-top: 30px;
+	margin: 30px auto auto;
 	left: 50%;
 	width: 1300px;
 	height: 540px;
 }
 
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 12.5%);
+}
+
 .selectorheadline {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 15px;
 	text-align: center;
 	color: #ffffff;
@@ -87,14 +91,14 @@ input, select {
 
 #civilizations {
 	width: 100%;
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 15px;
 	text-align: center;
 	color: #ffffff;
 	margin: 0 auto;
 }
 
-#civilizations td {
+#civilizations div {
 	text-align: left;
 	vertical-align:middle;
 	/*width: 50px;*/
@@ -113,7 +117,7 @@ input, select {
 }
 
 #nqonly {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 15px;
 	color: #ffffff;
 	margin: auto;
@@ -127,7 +131,7 @@ input, select {
 }
 
 #credits {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	font-size: 15px;
 	color: #ffffff;
 	margin: auto;
@@ -164,7 +168,7 @@ input, select {
 }
 
 .submitbutton {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	border-radius: 15px;
 	width: 100px;
 	margin-left: 20px;
@@ -172,14 +176,14 @@ input, select {
 }
 
 .drafterdropbox {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	border-radius: 15px;
 	padding-left: 20px;
 	margin-left: 20px;
 }
 
 #results {
-	font-family: Montserrat;
+	font-family: Montserrat, serif;
 	margin: auto;
 	top: 815px;
 	left: 50%;
@@ -208,8 +212,7 @@ input, select {
 }
 
 #copyresults {
-	margin: auto;
-	margin-top: 15px;
+	margin: 15px auto auto;
 	top: 770px;
 	left: 50%;
     width: 750px;
@@ -235,7 +238,7 @@ input, select {
   margin: 5px auto;
   position: relative;
   border-radius: 50px;
-  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .slideThree:after {
   content: 'OFF';
@@ -245,7 +248,7 @@ input, select {
   z-index: 0;
   font: 12px/26px Arial, sans-serif;
   font-weight: bold;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 .slideThree:before {
   content: 'ON';
@@ -269,7 +272,7 @@ input, select {
   background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
   border-radius: 50px;
   transition: all 0.4s ease;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 .slideThree input[type=checkbox] {
   visibility: hidden;

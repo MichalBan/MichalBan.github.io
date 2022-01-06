@@ -403,9 +403,19 @@ function updateBannedTitle() {
     $(".selectorheadline").html(titleHTML);
 }
 
+function createCivsTd() {
+    let civHtml = "";
+    $.each(allCivs, function (index) {
+        let imgName = index.toLowerCase();
+        civHtml = civHtml + "<div class='" + index + "'><img src='img/" + imgName + ".png' alt=''>" + index + "</div>";
+    });
+    $('#civilizations').html(civHtml);
+}
+
 $(document).ready(function () {
     updateBannedTitle();
     createCivsStrings();
+    createCivsTd();
 
     $(allCivsString).bind('click', civTdClick);
 
