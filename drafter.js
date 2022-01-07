@@ -115,11 +115,17 @@ const maxVanillaCivs = 42;
 
 let bannedCivs = 0;
 let totalCivs = maxModCivs;
-let allclicked = false;
 let vanillaOnly = false;
+
 let vanillaCivsString = "";
 let modCivsString = "";
 let allCivsString = "";
+
+let resultHTML = "";
+let resultString = "";
+
+let players = 0;
+let rndpicks = 0;
 
 function createCivsStrings() {
     $.each(allCivs, function (index, value) {
@@ -134,7 +140,7 @@ function createCivsStrings() {
     allCivsString = vanillaCivsString + ", " + modCivsString;
 }
 
-function fadeToNormal(civTd){
+function fadeToNormal(civTd) {
     $(civTd).css("text-decoration", "none");
     $(civTd).css("background-color", "#282828");
     $(civTd).fadeTo("slow", 1, function () {
@@ -148,7 +154,7 @@ function fadeToDark(civTd) {
     });
 }
 
-function animationFinished(element){
+function animationFinished(element) {
     return !$(element).is(':animated');
 }
 
@@ -158,7 +164,7 @@ function isDark(element) {
 
 function civTdClick() {
     if (animationFinished(this)) {
-        if(!vanillaOnly || allCivs[this.className].vanilla) {
+        if (!vanillaOnly || allCivs[this.className].vanilla) {
             if (isDark(this)) {
                 fadeToNormal(this);
                 allCivs[this.className].enabled = true;
@@ -173,9 +179,9 @@ function civTdClick() {
     }
 }
 
-function setCivsEnabled(enable, condition){
+function setCivsEnabled(enable, condition) {
     $.each(allCivs, function (index) {
-        if(condition(allCivs[index]))
+        if (condition(allCivs[index]))
             allCivs[index].enabled = enable;
     });
 }
@@ -190,7 +196,6 @@ function resetClick() {
     }
     bannedCivs = 0;
     updateBannedTitle();
-    allclicked = false;
 }
 
 function allClick() {
@@ -198,7 +203,6 @@ function allClick() {
     setCivsEnabled(false, () => true);
     bannedCivs = totalCivs;
     updateBannedTitle();
-    allclicked = true;
 }
 
 function removeModCivs() {
@@ -239,149 +243,93 @@ function sliderChange() {
     }
 }
 
-function copyToClipboard(elem) {
-    // create hidden text element, if it doesn't already exist
-    let targetId = "_hiddenCopyText_";
-    let isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
-    let origSelectionStart, origSelectionEnd;
-    let target;
-    if (isInput) {
-        // can just use the original source element for the selection and copy
-        target = elem;
-        origSelectionStart = elem.selectionStart;
-        origSelectionEnd = elem.selectionEnd;
-    } else {
-        // must use a temporary form element for the selection and copy
-        target = document.getElementById(targetId);
-        if (!target) {
-            target = document.createElement("textarea");
-            target.style.position = "absolute";
-            target.style.left = "-9999px";
-            target.style.top = "0";
-            target.id = targetId;
-            document.body.appendChild(target);
+function executeCopy() {
+    try {
+        if (document.execCommand("copy")) {
+            $(".rescopied").text("Draft results have been copied to clipboard");
+        } else {
+            $(".rescopied").text("Failed to copy draft results to clipboard");
         }
-        target.textContent = elem.textContent;
+    } catch (e) {
+        $(".rescopied").text("Failed to copy draft results to clipboard");
     }
-    // select the content
-    let currentFocus = document.activeElement;
+}
+
+function copyToClipboard() {
+    let target = document.getElementById("copyTarget");
+    let origFocus = document.activeElement;
     target.focus();
     target.setSelectionRange(0, target.value.length);
+    executeCopy();
+    origFocus.focus();
+}
 
-    // copy the selection
-    let succeed;
-    try {
-        succeed = document.execCommand("copy");
-    } catch (e) {
-        succeed = false;
-    }
-    // restore original focus
-    if (currentFocus && typeof currentFocus.focus === "function") {
-        currentFocus.focus();
-    }
+function createAllowedCivsList() {
+    let allowedCivsList = [];
+    $.each(allCivs, function (index) {
+        if (allCivs[index].enabled) {
+            allowedCivsList.push(index);
+        }
+    });
+    return allowedCivsList;
+}
 
-    if (isInput) {
-        // restore prior selection
-        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
-    } else {
-        // clear temporary content
-        target.textContent = "";
+function enoughCivs() {
+    let neededCivs = players * rndpicks;
+    let enabledCivs = totalCivs - bannedCivs;
+    if (neededCivs > totalCivs) {
+        $("#results").html("<p class='drawerror'>There are not enough civilizations for given number of picks and players!</p>");
+        return false;
+    } else if (enabledCivs < neededCivs) {
+        $("#results").html("<p class='drawerror'>There are not enough available civilizations to make the draw!</br>Please unban at least another " + (neededCivs - enabledCivs).toString() + " civilizations and try again!</p>");
+        return false;
     }
-    return succeed;
+    return true;
+}
+
+function pickPlayerCivs(allowedCivsList) {
+    for (let k = 1; k <= rndpicks; k++) {
+        let thisciv = Math.floor(Math.random() * allowedCivsList.length);
+        resultHTML = resultHTML + "<td><img src='img/" + allowedCivsList[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivsList[thisciv] + "<td>";
+        resultString = resultString + allowedCivsList[thisciv] + " or ";
+        allowedCivsList.splice(thisciv, 1);
+    }
+}
+
+function pickCivs(allowedCivsList) {
+    for (let i = 1; i <= players; i++) {
+        resultHTML = resultHTML + "<tr><td>Player " + i + " choose from:</td>";
+        resultString = resultString + "Player " + i + " choose from: - ";
+        pickPlayerCivs(allowedCivsList);
+        resultString = resultString.slice(0, -4) + "\r\n";
+        resultHTML = resultHTML + "</br>"
+    }
+}
+
+function draft($results, allowedCivsList) {
+    resultHTML = "<p class='rescopied'></p><table class='drawresults'>";
+    resultString = "";
+    $results.css("text-align", "left");
+    pickCivs(allowedCivsList);
+    resultHTML = resultHTML + "</table><div id='copyresults'><input class='submitbutton' name='copyres' id='copyres' type='button' value='Copy Results' /></div>";
+
+    $results.html(resultHTML);
+
+    $("#copyTarget").val(resultString);
+    $('#copyres').click(copyToClipboard);
+    copyToClipboard();
 }
 
 function createDraftClick() {
-    let players = $("#gameplayers option:selected").index() + 1;
-    let rndpicks = $("#picks option:selected").index() + 1;
-    let neededCivs = players * rndpicks;
-    let enabledCivs = 0;
-    let missingCivs = 0;
-    let allowedCivs = [];
+    let allowedCivsList = createAllowedCivsList();
+    players = $("#gameplayers option:selected").index() + 1;
+    rndpicks = $("#picks option:selected").index() + 1;
 
-    //clear any previous results
     let $results = $("#results");
     $results.empty();
 
-    //check how many civs are enabled
-    $.each(allCivs, function (index) {
-        if (allCivs[index].enabled) {
-            allowedCivs[enabledCivs] = index;
-            enabledCivs++;
-        }
-    });
-
-    //check if the user is trying to pick more civs than avaliable
-    if (neededCivs > maxModCivs) {
-        $results.html("<p class='drawerror'>There are not enough civilizations for " + players + " players to have " + rndpicks + " picks each!</br>Select a different number of players or lower the number of random picks and try again!</p>");
-
-        // check if we have enough enabled civs process the draft
-    } else if (enabledCivs < neededCivs) {
-        missingCivs = neededCivs - enabledCivs;
-        $results.html("<p class='drawerror'>There are not enough available civilizations to make the draw!</br>Please unban at least another " + missingCivs + " civilizations and try again!</p>");
-
-        // errors handled we can now make the draw
-    } else {
-
-        // pick rand civs for each player
-        let i;
-        let k;
-        let picksHTML = "<p class='rescopied'>Draft results have been copied to clipboard</p>";
-        let resCopy = "";
-
-        picksHTML = picksHTML + "<table class='drawresults'>";
-
-        $results.css("text-align", "left");
-        //loop thru each player
-        for (i = 1; i <= players; i++) {
-
-            //add this player to the results HTML
-            picksHTML = picksHTML + "<tr><td>Player " + i + " choose from:</td>";
-            resCopy = resCopy + "Player " + i + " choose from: - ";
-
-            //loop however many picks are needed
-            for (k = 1; k <= rndpicks; k++) {
-
-                //loop thru the avlaiable civs and pick 3 at random
-                let thisciv = Math.floor(Math.random() * allowedCivs.length);
-                picksHTML = picksHTML + "<td><img src='img/" + allowedCivs[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivs[thisciv];
-
-                if (k < rndpicks) {
-                    picksHTML = picksHTML + "<td>";
-                    resCopy = resCopy + allowedCivs[thisciv] + " or ";
-                } else {
-                    picksHTML = picksHTML + "<td>";
-                    resCopy = resCopy + allowedCivs[thisciv] + "\r\n";
-                }
-
-                // remove this item from the array, create new temp array and then assign it to allowed civs
-                enabledCivs = 0;
-                let tmpCivs = [];
-
-                $.each(allowedCivs, function (index, value) {
-                    if (index !== thisciv) {
-                        tmpCivs[enabledCivs] = value;
-                        enabledCivs++;
-                    }
-                });
-
-                allowedCivs = tmpCivs.slice();
-            }
-
-            picksHTML = picksHTML + "</br>"
-        }
-
-        picksHTML = picksHTML + "</table>";
-        picksHTML = picksHTML + "<div id='copyresults'><input class='submitbutton' name='copyres' id='copyres' type='button' value='Copy Results' /></div>";
-        $results.html(picksHTML);
-
-        $("#copyTarget").val(resCopy);
-
-        document.getElementById("copyres").addEventListener("click", function () {
-            copyToClipboard(document.getElementById("copyTarget"));
-        });
-
-        $("#copyres").click();
-
+    if(enoughCivs()){
+        draft($results, allowedCivsList);
     }
 }
 
