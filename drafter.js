@@ -1,107 +1,114 @@
-﻿let allCivs = {};
-allCivs["Akkad"] = {enabled: true, vanilla: false};
-allCivs["Aksum"] = {enabled: true, vanilla: false};
-allCivs["America"] = {enabled: true, vanilla: false};
-allCivs["Arabia"] = {enabled: true, vanilla: true};
-allCivs["Argentina"] = {enabled: true, vanilla: false};
-allCivs["Armenia"] = {enabled: true, vanilla: false};
-allCivs["Assyria"] = {enabled: true, vanilla: true};
-allCivs["Australia"] = {enabled: true, vanilla: false};
-allCivs["Austria"] = {enabled: true, vanilla: true};
-allCivs["Ayyubids"] = {enabled: true, vanilla: false};
-allCivs["Aztec"] = {enabled: true, vanilla: true};
-allCivs["Babylon"] = {enabled: true, vanilla: true};
-allCivs["Belgium"] = {enabled: true, vanilla: false};
-allCivs["Boers"] = {enabled: true, vanilla: false};
-allCivs["Bolivia"] = {enabled: true, vanilla: false};
-allCivs["Brazil"] = {enabled: true, vanilla: true};
-allCivs["Bruneian"] = {enabled: true, vanilla: false};
-allCivs["Bulgaria"] = {enabled: true, vanilla: false};
-allCivs["Burma"] = {enabled: true, vanilla: false};
-allCivs["Byzantium"] = {enabled: true, vanilla: true};
-allCivs["Canada"] = {enabled: true, vanilla: false};
-allCivs["Carthage"] = {enabled: true, vanilla: true};
-allCivs["Celts"] = {enabled: true, vanilla: true};
-allCivs["Chile"] = {enabled: true, vanilla: false};
-allCivs["China"] = {enabled: true, vanilla: true};
-allCivs["Cuba"] = {enabled: true, vanilla: false};
-allCivs["Czech"] = {enabled: true, vanilla: false};
-allCivs["Denmark"] = {enabled: true, vanilla: true};
-allCivs["Egypt"] = {enabled: true, vanilla: true};
-allCivs["England"] = {enabled: true, vanilla: true};
-allCivs["Ethiopia"] = {enabled: true, vanilla: true};
-allCivs["Finland"] = {enabled: true, vanilla: false};
-allCivs["France"] = {enabled: true, vanilla: true};
-allCivs["Franks"] = {enabled: true, vanilla: false};
-allCivs["Gaul"] = {enabled: true, vanilla: false};
-allCivs["Germany"] = {enabled: true, vanilla: true};
-allCivs["Golden"] = {enabled: true, vanilla: false};
-allCivs["Goths"] = {enabled: true, vanilla: false};
-allCivs["Greece"] = {enabled: true, vanilla: true};
-allCivs["Hittites"] = {enabled: true, vanilla: false};
-allCivs["Hungary"] = {enabled: true, vanilla: false};
-allCivs["Huns"] = {enabled: true, vanilla: true};
-allCivs["Inca"] = {enabled: true, vanilla: true};
-allCivs["India"] = {enabled: true, vanilla: true};
-allCivs["Indonesia"] = {enabled: true, vanilla: true};
-allCivs["Ireland"] = {enabled: true, vanilla: false};
-allCivs["Iroquois"] = {enabled: true, vanilla: true};
-allCivs["Israel"] = {enabled: true, vanilla: false};
-allCivs["Italy"] = {enabled: true, vanilla: false};
-allCivs["Japan"] = {enabled: true, vanilla: true};
-allCivs["Jerusalem"] = {enabled: true, vanilla: false};
-allCivs["Khmer"] = {enabled: true, vanilla: false};
-allCivs["Kilwa"] = {enabled: true, vanilla: false};
-allCivs["Kongo"] = {enabled: true, vanilla: false};
-allCivs["Korea"] = {enabled: true, vanilla: true};
-allCivs["Lithuania"] = {enabled: true, vanilla: false};
-allCivs["Macedonian"] = {enabled: true, vanilla: false};
-allCivs["Malagasy"] = {enabled: true, vanilla: false};
-allCivs["Mali"] = {enabled: true, vanilla: false};
-allCivs["Manchuria"] = {enabled: true, vanilla: false};
-allCivs["Maori"] = {enabled: true, vanilla: false};
-allCivs["Maya"] = {enabled: true, vanilla: true};
-allCivs["Mexican"] = {enabled: true, vanilla: false};
-allCivs["Mongolia"] = {enabled: true, vanilla: true};
-allCivs["Mysore"] = {enabled: true, vanilla: false};
-allCivs["Cordoba"] = {enabled: true, vanilla: false};
-allCivs["Morocco"] = {enabled: true, vanilla: true};
-allCivs["Netherlands"] = {enabled: true, vanilla: true};
-allCivs["NewZealand"] = {enabled: true, vanilla: false};
-allCivs["Normandy"] = {enabled: true, vanilla: false};
-allCivs["Norway"] = {enabled: true, vanilla: false};
-allCivs["Nubia"] = {enabled: true, vanilla: false};
-allCivs["Oman"] = {enabled: true, vanilla: false};
-allCivs["Ottomans"] = {enabled: true, vanilla: true};
-allCivs["Persia"] = {enabled: true, vanilla: true};
-allCivs["Philipines"] = {enabled: true, vanilla: false};
-allCivs["Phoenician"] = {enabled: true, vanilla: false};
-allCivs["Poland"] = {enabled: true, vanilla: true};
-allCivs["Polynesia"] = {enabled: true, vanilla: true};
-allCivs["Portugal"] = {enabled: true, vanilla: true};
-allCivs["Prussian"] = {enabled: true, vanilla: false};
-allCivs["Romania"] = {enabled: true, vanilla: false};
-allCivs["Rome"] = {enabled: true, vanilla: true};
-allCivs["Russia"] = {enabled: true, vanilla: true};
-allCivs["Scotland"] = {enabled: true, vanilla: false};
-allCivs["Shoshone"] = {enabled: true, vanilla: true};
-allCivs["Siam"] = {enabled: true, vanilla: true};
-allCivs["Sioux"] = {enabled: true, vanilla: false};
-allCivs["Songhai"] = {enabled: true, vanilla: true};
-allCivs["Spain"] = {enabled: true, vanilla: true};
-allCivs["Sumeria"] = {enabled: true, vanilla: false};
-allCivs["Sweden"] = {enabled: true, vanilla: true};
-allCivs["Tibet"] = {enabled: true, vanilla: false};
-allCivs["Timurids"] = {enabled: true, vanilla: false};
-allCivs["Tonga"] = {enabled: true, vanilla: false};
-allCivs["Turkey"] = {enabled: true, vanilla: false};
-allCivs["Ukraine"] = {enabled: true, vanilla: false};
-allCivs["Vatican"] = {enabled: true, vanilla: false};
-allCivs["Venetian"] = {enabled: true, vanilla: true};
-allCivs["Vietnam"] = {enabled: true, vanilla: false};
-allCivs["Wales"] = {enabled: true, vanilla: false};
-allCivs["Zimbabwe"] = {enabled: true, vanilla: false};
-allCivs["Zulu"] = {enabled: true, vanilla: true};
+﻿class Civ {
+    constructor(vanilla = false) {
+        this.enabled = true;
+        this.vanilla = vanilla;
+    }
+}
+
+let allCivs = {};
+allCivs["Akkad"] = new Civ();
+allCivs["Aksum"] = new Civ();
+allCivs["America"] = new Civ();
+allCivs["Arabia"] = new Civ(true);
+allCivs["Argentina"] = new Civ();
+allCivs["Armenia"] = new Civ();
+allCivs["Assyria"] = new Civ(true);
+allCivs["Australia"] = new Civ();
+allCivs["Austria"] = new Civ(true);
+allCivs["Ayyubids"] = new Civ();
+allCivs["Aztec"] = new Civ(true);
+allCivs["Babylon"] = new Civ(true);
+allCivs["Belgium"] = new Civ();
+allCivs["Boers"] = new Civ();
+allCivs["Bolivia"] = new Civ();
+allCivs["Brazil"] = new Civ(true);
+allCivs["Bruneian"] = new Civ();
+allCivs["Bulgaria"] = new Civ();
+allCivs["Burma"] = new Civ();
+allCivs["Byzantium"] = new Civ(true);
+allCivs["Canada"] = new Civ();
+allCivs["Carthage"] = new Civ(true);
+allCivs["Celts"] = new Civ(true);
+allCivs["Chile"] = new Civ();
+allCivs["China"] = new Civ(true);
+allCivs["Cuba"] = new Civ();
+allCivs["Czech"] = new Civ();
+allCivs["Denmark"] = new Civ(true);
+allCivs["Egypt"] = new Civ(true);
+allCivs["England"] = new Civ(true);
+allCivs["Ethiopia"] = new Civ(true);
+allCivs["Finland"] = new Civ();
+allCivs["France"] = new Civ(true);
+allCivs["Franks"] = new Civ();
+allCivs["Gaul"] = new Civ();
+allCivs["Germany"] = new Civ(true);
+allCivs["Golden"] = new Civ();
+allCivs["Goths"] = new Civ();
+allCivs["Greece"] = new Civ(true);
+allCivs["Hittites"] = new Civ();
+allCivs["Hungary"] = new Civ();
+allCivs["Huns"] = new Civ(true);
+allCivs["Inca"] = new Civ(true);
+allCivs["India"] = new Civ(true);
+allCivs["Indonesia"] = new Civ(true);
+allCivs["Ireland"] = new Civ();
+allCivs["Iroquois"] = new Civ(true);
+allCivs["Israel"] = new Civ();
+allCivs["Italy"] = new Civ();
+allCivs["Japan"] = new Civ(true);
+allCivs["Jerusalem"] = new Civ();
+allCivs["Khmer"] = new Civ();
+allCivs["Kilwa"] = new Civ();
+allCivs["Kongo"] = new Civ();
+allCivs["Korea"] = new Civ(true);
+allCivs["Lithuania"] = new Civ();
+allCivs["Macedonian"] = new Civ();
+allCivs["Malagasy"] = new Civ();
+allCivs["Mali"] = new Civ();
+allCivs["Manchuria"] = new Civ();
+allCivs["Maori"] = new Civ();
+allCivs["Maya"] = new Civ(true);
+allCivs["Mexican"] = new Civ();
+allCivs["Mongolia"] = new Civ(true);
+allCivs["Mysore"] = new Civ();
+allCivs["Cordoba"] = new Civ();
+allCivs["Morocco"] = new Civ(true);
+allCivs["Netherlands"] = new Civ(true);
+allCivs["NewZealand"] = new Civ();
+allCivs["Normandy"] = new Civ();
+allCivs["Norway"] = new Civ();
+allCivs["Nubia"] = new Civ();
+allCivs["Oman"] = new Civ();
+allCivs["Ottomans"] = new Civ(true);
+allCivs["Persia"] = new Civ(true);
+allCivs["Philipines"] = new Civ();
+allCivs["Phoenician"] = new Civ();
+allCivs["Poland"] = new Civ(true);
+allCivs["Polynesia"] = new Civ(true);
+allCivs["Portugal"] = new Civ(true);
+allCivs["Prussian"] = new Civ();
+allCivs["Romania"] = new Civ();
+allCivs["Rome"] = new Civ(true);
+allCivs["Russia"] = new Civ(true);
+allCivs["Scotland"] = new Civ();
+allCivs["Shoshone"] = new Civ(true);
+allCivs["Siam"] = new Civ(true);
+allCivs["Sioux"] = new Civ();
+allCivs["Songhai"] = new Civ(true);
+allCivs["Spain"] = new Civ(true);
+allCivs["Sumeria"] = new Civ();
+allCivs["Sweden"] = new Civ(true);
+allCivs["Tibet"] = new Civ();
+allCivs["Timurids"] = new Civ();
+allCivs["Tonga"] = new Civ();
+allCivs["Turkey"] = new Civ();
+allCivs["Ukraine"] = new Civ();
+allCivs["Vatican"] = new Civ();
+allCivs["Venetian"] = new Civ(true);
+allCivs["Vietnam"] = new Civ();
+allCivs["Wales"] = new Civ();
+allCivs["Zimbabwe"] = new Civ();
+allCivs["Zulu"] = new Civ(true);
 
 const maxModCivs = Object.keys(allCivs).length;
 const maxVanillaCivs = 42;
@@ -109,6 +116,7 @@ const maxVanillaCivs = 42;
 let bannedCivs = 0;
 let totalCivs = maxModCivs;
 let allclicked = false;
+let vanillaOnly = false;
 let vanillaCivsString = "";
 let modCivsString = "";
 let allCivsString = "";
@@ -126,131 +134,160 @@ function createCivsStrings() {
     allCivsString = vanillaCivsString + ", " + modCivsString;
 }
 
+function fadeToNormal(civTd){
+    $(civTd).css("text-decoration", "none");
+    $(civTd).css("background-color", "#282828");
+    $(civTd).fadeTo("slow", 1, function () {
+    });
+}
+
+function fadeToDark(civTd) {
+    $(civTd).css("background-color", "#1a1a1a");
+    $(civTd).fadeTo("slow", 0.25, function () {
+        $(civTd).css("text-decoration", "line-through");
+    });
+}
+
+function animationFinished(element){
+    return !$(element).is(':animated');
+}
+
+function isDark(element) {
+    return $(element).css('opacity') < 1
+}
+
 function civTdClick() {
-    if (!$(this).is(':animated')) {
-        if ($(this).css('opacity') < 1) {
-            $(this).css("text-decoration", "none");
-            $(this).css("background-color", "#282828");
-            $(this).fadeTo("slow", 1, function () {
-            });
-            allCivs[this.className].enabled = true;
-            bannedCivs--;
-        } else {
-            $(this).css("background-color", "#1a1a1a");
-            $(this).fadeTo("slow", 0.25, function () {
-                $(this).css("text-decoration", "line-through");
-            });
-            allCivs[this.className].enabled = false;
-            bannedCivs++;
+    if (animationFinished(this)) {
+        if(!vanillaOnly || allCivs[this.className].vanilla) {
+            if (isDark(this)) {
+                fadeToNormal(this);
+                allCivs[this.className].enabled = true;
+                bannedCivs--;
+            } else {
+                fadeToDark(this);
+                allCivs[this.className].enabled = false;
+                bannedCivs++;
+            }
+            updateBannedTitle();
         }
     }
-    updateBannedTitle();
+}
+
+function setCivsEnabled(enable, condition){
+    $.each(allCivs, function (index) {
+        if(condition(allCivs[index]))
+            allCivs[index].enabled = enable;
+    });
 }
 
 function resetClick() {
-    if ($('#slideThree').is(':checked')) {
-        $(vanillaCivsString).css(
-            {
-                "text-decoration": "none",
-                "background-color": "#282828"
-            });
-
-        $(vanillaCivsString).fadeTo("slow", 1, function () {
-        });
-
-        $.each(allCivs, function (index, value) {
-            allCivs[index].enabled = value.vanilla;
-        });
-
-        //update the title
-        totalCivs = maxVanillaCivs;
-        bannedCivs = 0;
-        updateBannedTitle();
+    if (vanillaOnly) {
+        fadeToNormal(vanillaCivsString);
+        setCivsEnabled(true, civ => civ.vanilla);
     } else {
-        $(allCivsString).css(
-            {
-                "text-decoration": "none",
-                "background-color": "#282828"
-            });
-
-        $(allCivsString).fadeTo("slow", 1, function () {
-        });
-
-        $.each(allCivs, function (index) {
-            allCivs[index].enabled = true;
-        });
-
-        //update the title
-        bannedCivs = 0;
-        updateBannedTitle();
+        fadeToNormal(allCivsString);
+        setCivsEnabled(true, () => true);
     }
+    bannedCivs = 0;
+    updateBannedTitle();
     allclicked = false;
 }
 
 function allClick() {
-    $(allCivsString).fadeTo("slow", 0.25, function () {
-        $(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});
-    });
-
-
-    $.each(allCivs, function (index) {
-        allCivs[index].enabled = false;
-    });
-
-    //update the title
-    totalCivs = maxModCivs;
+    fadeToDark(allCivsString);
+    setCivsEnabled(false, () => true);
     bannedCivs = totalCivs;
     updateBannedTitle();
-
     allclicked = true;
+}
 
+function removeModCivs() {
+    fadeToDark(modCivsString);
+    setCivsEnabled(false, civ => !civ.vanilla);
+    totalCivs = maxVanillaCivs;
+    bannedCivs = 0;
+    updateBannedTitle();
+}
+
+function addModCivs() {
+    fadeToNormal(modCivsString);
+    setCivsEnabled(true, civ => !civ.vanilla);
+    totalCivs = maxModCivs;
+    bannedCivs = 0;
+    updateBannedTitle();
+}
+
+function visualizeSliderCheck() {
+    $(".slideThree label").css({"left": "43px"});
+    $('#slideThree').prop("checked");
+}
+
+function visualizeSliderUncheck() {
+    $(".slideThree label").css({"left": "3px"});
+    $('#slideThree').prop("unchecked");
 }
 
 function sliderChange() {
     if (this.checked) {
-        if (!allclicked) {
-            $(modCivsString).fadeTo("slow", 0.25, function () {
-                $(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});
-            });
-
-
-            $.each(allCivs, function (index, value) {
-                if (!value.vanilla) {
-                    allCivs[index].enabled = false;
-                }
-            });
-
-            //update the title
-            totalCivs = maxVanillaCivs;
-            bannedCivs = 0;
-            updateBannedTitle();
-        }
-
-        $(".slideThree label").css({"left": "43px"});
-        $(this).prop("checked");
+        removeModCivs();
+        visualizeSliderCheck();
+        vanillaOnly = true;
     } else {
-        if (!allclicked) {
-            $(modCivsString).css({"text-decoration": "none", "background-color": "#282828"});
-
-
-            $(modCivsString).fadeTo("slow", 1, function () {
-            });
-
-            $.each(allCivs, function (index, value) {
-                if (!value.vanilla) {
-                    allCivs[index].enabled = true;
-                }
-            });
-
-            //update the title
-            totalCivs = maxModCivs;
-            bannedCivs = 0;
-            updateBannedTitle();
-        }
-
-        $(".slideThree label").css({"left": "3px"});
-        $(this).prop("unchecked");
+        addModCivs();
+        visualizeSliderUncheck();
+        vanillaOnly = false;
     }
+}
+
+function copyToClipboard(elem) {
+    // create hidden text element, if it doesn't already exist
+    let targetId = "_hiddenCopyText_";
+    let isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    let origSelectionStart, origSelectionEnd;
+    let target;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    // select the content
+    let currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    // copy the selection
+    let succeed;
+    try {
+        succeed = document.execCommand("copy");
+    } catch (e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
 }
 
 function createDraftClick() {
@@ -345,56 +382,6 @@ function createDraftClick() {
 
         $("#copyres").click();
 
-        function copyToClipboard(elem) {
-            // create hidden text element, if it doesn't already exist
-            let targetId = "_hiddenCopyText_";
-            let isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
-            let origSelectionStart, origSelectionEnd;
-            let target;
-            if (isInput) {
-                // can just use the original source element for the selection and copy
-                target = elem;
-                origSelectionStart = elem.selectionStart;
-                origSelectionEnd = elem.selectionEnd;
-            } else {
-                // must use a temporary form element for the selection and copy
-                target = document.getElementById(targetId);
-                if (!target) {
-                    target = document.createElement("textarea");
-                    target.style.position = "absolute";
-                    target.style.left = "-9999px";
-                    target.style.top = "0";
-                    target.id = targetId;
-                    document.body.appendChild(target);
-                }
-                target.textContent = elem.textContent;
-            }
-            // select the content
-            let currentFocus = document.activeElement;
-            target.focus();
-            target.setSelectionRange(0, target.value.length);
-
-            // copy the selection
-            let succeed;
-            try {
-                succeed = document.execCommand("copy");
-            } catch (e) {
-                succeed = false;
-            }
-            // restore original focus
-            if (currentFocus && typeof currentFocus.focus === "function") {
-                currentFocus.focus();
-            }
-
-            if (isInput) {
-                // restore prior selection
-                elem.setSelectionRange(origSelectionStart, origSelectionEnd);
-            } else {
-                // clear temporary content
-                target.textContent = "";
-            }
-            return succeed;
-        }
     }
 }
 
@@ -419,11 +406,11 @@ $(document).ready(function () {
 
     $(allCivsString).bind('click', civTdClick);
 
-    $('#reset').click(resetClick);
-
-    $('#all').click(allClick);
-
     $('#slideThree').change(sliderChange);
 
     $('#create').click(createDraftClick);
+
+    $('#reset').click(resetClick);
+
+    $('#all').click(allClick);
 });				
