@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@font-face {
+  font-family: "Montserrat";
+}
+
+body {
+	background-color: #282828;
+}
+#main {
+	margin: auto;
+    width: 100%;
+    height: 1000px;
+}
+
+.header {
+	margin: auto;
+    width: 100%;
+    height: 30px;
+}
+
+.navbar-list{
+	text-align: center;
+}
+
+.nav-item{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+	
+	border: 1px solid #ffffff;
+	border-radius: 5px;
+	
+	width: 300px;
+	font-family: Montserrat, serif;
+	font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.headline {
+	font-family: Montserrat, serif;
+	font-size: 20px;
+	text-align: center;
+	color: #ffffff;
+}
+
+ul li {
+  	list-style: none;
+	font-family: Montserrat, serif;
+	font-size: 15px;
+	left: 100px;
+	color: #ffffff;
+	padding-bottom: 10px;
+
+}
+
+ul li > label:after, ul li > label:after {
+  	content:":";
+}
+
+label {
+  	/*display: inline-block;*/
+	text-align: right;
+	width: 200px;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+input, select {
+	display: inline-block;
+	background-color: #fff;
+	border: solid 1px #BBC5CE;
+	margin: 0;
+	padding: 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}

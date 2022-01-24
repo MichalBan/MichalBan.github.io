@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Civilization 5 Tools</title>
+<link href="css/shared.css" rel="stylesheet" type="text/css" />
+<link href="css/calculator.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type=""></script>
+<script src="js/calculator.js" type=""></script>
+</head>
+
+<body>
+	<div id="main">
+		<div class="header">
+			<p class="headline">Civilization 5 Tools</p>
+		</div>
+
+		<div class="navbar-list">
+			<a class="nav-item" href="index.html">Drafter</a>
+			<a class="nav-item" href="calculator.html">Calculator</a>		  
+		</div>
+		
+		<div class="header">
+			<p class="headline">Civilization 5 Damage Calculator</p>
+		</div>
+		
+		<form class="unit" action="">
+			<label class="unit-label" for="attackerStr">Attacker Strength</label>
+			<label class="unit-label" for="defenderStr">Defender Strength</label>
+			<input class="unit-in" type="text" id="attackerStr" value="10" onClick="this.setSelectionRange(0, this.value.length)">
+			<input class="unit-in" type="text" id="defenderStr" value="10" onClick="this.setSelectionRange(0, this.value.length)">
+			<label class="unit-label" for="attackerMod">Attacker Modifier%</label>
+			<label class="unit-label" for="defenderMod">Defender Modifier%</label>
+			<input class="unit-in" type="text" id="attackerMod" value="0" onClick="this.setSelectionRange(0, this.value.length)">
+			<input class="unit-in" type="text" id="defenderMod" value="0" onClick="this.setSelectionRange(0, this.value.length)">
+			<label class="unit-label" for="attackerHp">Attacker Health</label>
+			<label class="unit-label" for="defenderHp">Defender Health</label>
+			<input class="unit-in" type="text" id="attackerHp" value="100" onClick="this.setSelectionRange(0, this.value.length)">
+			<input class="unit-in" type="text" id="defenderHp" value="100" onClick="this.setSelectionRange(0, this.value.length)">
+		</form>
+
+		<div class="calculate">
+			<input class="calculate-button" type="button" value="Calculate" />
+		</div>
+		
+		<div class="results">
+			<label class="unit-label">Attacker Damage</label>
+			<label class="unit-label">Defender Damage</label>
+			<label class="results-result" id="attackerDmg">30</label>
+			<label class="results-result" id="defenderDmg">30</label>	
+		</div>
+	</div>
+</body>
