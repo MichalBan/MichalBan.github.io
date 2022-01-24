@@ -297,6 +297,8 @@ function draft($results, allowedCivsList) {
     $("#copyTarget").val(resultString);
     $('#copyres').click(copyToClipboard);
     copyToClipboard();
+
+    $('html,body').animate({scrollTop: $("#credits").offset().top},'fast');
 }
 
 function createDraftClick() {

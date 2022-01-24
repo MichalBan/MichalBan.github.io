@@ -81,11 +81,15 @@ input, select {
 }
 
 #copyresultstext {
-	visibility: hidden;
+	margin-left: -999px;
 }
 
 .rescopied {
 	font-family: Montserrat, serif;
 	text-align: center;
 	color: #ffffff;
+}
+
+#copyTarget{
+	font-size: 0;
 }
