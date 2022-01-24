@@ -130,9 +130,9 @@ let rndpicks = 0;
 function createCivsStrings() {
     $.each(allCivs, function (index, value) {
         if (value.vanilla) {
-            vanillaCivsString = vanillaCivsString + "." + index + ", ";
+            vanillaCivsString += "." + index + ", ";
         } else {
-            modCivsString = modCivsString + "." + index + ", ";
+            modCivsString += "." + index + ", ";
         }
     });
     vanillaCivsString = vanillaCivsString.slice(0, -2);
@@ -290,19 +290,19 @@ function enoughCivs() {
 function pickPlayerCivs(allowedCivsList) {
     for (let k = 1; k <= rndpicks; k++) {
         let thisciv = Math.floor(Math.random() * allowedCivsList.length);
-        resultHTML = resultHTML + "<td><img src='img/" + allowedCivsList[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivsList[thisciv] + "<td>";
-        resultString = resultString + allowedCivsList[thisciv] + " or ";
+        resultHTML += "<td><img src='img/" + allowedCivsList[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivsList[thisciv] + "<td>";
+        resultString += allowedCivsList[thisciv] + " or ";
         allowedCivsList.splice(thisciv, 1);
     }
 }
 
 function pickCivs(allowedCivsList) {
     for (let i = 1; i <= players; i++) {
-        resultHTML = resultHTML + "<tr><td>Player " + i + " choose from:</td>";
-        resultString = resultString + "Player " + i + " choose from: - ";
+        resultHTML += "<tr><td>Player " + i + " choose from:</td>";
+        resultString += "Player " + i + " choose from: - ";
         pickPlayerCivs(allowedCivsList);
         resultString = resultString.slice(0, -4) + "\r\n";
-        resultHTML = resultHTML + "</br>"
+        resultHTML += "</br>"
     }
 }
 
@@ -311,7 +311,7 @@ function draft($results, allowedCivsList) {
     resultString = "";
     $results.css("text-align", "left");
     pickCivs(allowedCivsList);
-    resultHTML = resultHTML + "</table><div id='copyresults'><input class='submitbutton' name='copyres' id='copyres' type='button' value='Copy Results' /></div>";
+    resultHTML += "</table><div id='copyresults'><input class='submitbutton' name='copyres' id='copyres' type='button' value='Copy Results' /></div>";
 
     $results.html(resultHTML);
 
@@ -342,7 +342,7 @@ function createCivsTd() {
     let civHtml = "";
     $.each(allCivs, function (index) {
         let imgName = index.toLowerCase();
-        civHtml = civHtml + "<div class='" + index + "'><img src='img/" + imgName + ".png' alt=''>" + index + "</div>";
+        civHtml += "<div class='" + index + "'><img src='img/" + imgName + ".png' alt=''>" + index + "</div>";
     });
     $('#civilizations').html(civHtml);
 }
