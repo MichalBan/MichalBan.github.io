@@ -7,6 +7,7 @@
 <link href="css/shared.css" rel="stylesheet" type="text/css" />
 <link href="css/calculator.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type=""></script>
+<script src="js/clipboard.js" type=""></script>
 <script src="js/calculator.js" type=""></script>
 </head>
 
@@ -43,6 +44,8 @@
 		<div class="calculate">
 			<input class="calculate-button" type="button" value="Calculate" />
 		</div>
+
+		<p class='rescopied'><br></p>
 		
 		<div class="results">
 			<label class="unit-label">Attacker Damage</label>
@@ -50,5 +53,12 @@
 			<label class="results-result" id="attackerDmg">0</label>
 			<label class="results-result" id="defenderDmg">0</label>
 		</div>
+	</div>
+
+	<div id="copyresultstext">
+		<label for="copyTarget"></label>
+		<textarea rows="4" cols="50" id="copyTarget">
+			Text to Copy
+		</textarea>
 	</div>
 </body>

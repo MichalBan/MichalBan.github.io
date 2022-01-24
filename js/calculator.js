@@ -1,49 +1,37 @@
-function getLimitedNumber(elementName){
-	let num = Number($(elementName).val());
-	return capToLimit(num);
-}
+$(document).ready(function () {
+	$('.unit-in').click(selectAll);
+	$('.calculate-button').click(calculateClick);
+});
 
-function calculate(){
-	let attackerStr = getLimitedNumber('#attackerStr');
-	let attackerMod =  getLimitedNumber('#attackerMod');
-	let attackerHp =  getLimitedNumber('#attackerHp');
-	let attackerBaseDmg = 30*(50 + attackerHp/2)/100;
-	attackerStr *= (100 + attackerMod)/100;
+function calculateClick(){
+	let [attackerStrength, attackerBaseDmg] = getCombatStats('attacker');
+	let [defenderStrength, defenderBaseDmg] = getCombatStats('defender');
 
-	let defenderStr = getLimitedNumber('#defenderStr');
-	let defenderMod =  getLimitedNumber('#defenderMod');
-	let defenderHp =  getLimitedNumber('#defenderHp');
-	let defenderBaseDmg = 30*(50 + defenderHp/2)/100;
-	defenderStr *= (100 + defenderMod)/100;
+	let attackerDmg = getDamage(attackerStrength, defenderStrength, attackerBaseDmg);
+	let defenderDmg = getDamage(defenderStrength, attackerStrength, defenderBaseDmg);
 
-	let attackerDmg = getDamage(attackerStr, defenderStr, attackerBaseDmg);
-	let defenderDmg = getDamage(defenderStr, attackerStr, defenderBaseDmg);
-	
 	$('#attackerDmg').text(getDamageString(attackerDmg));
 	$('#defenderDmg').text(getDamageString(defenderDmg));
+
+	$("#copyTarget").val(getResultString(attackerDmg, defenderDmg));
+	copyToClipboard();
 }
 
-function getDamageString(damage) {
-	let str = "" + Math.round(capToLimit(damage*0.8));
-	str += "/" + Math.round(damage);
-	str += "/" + Math.round(capToLimit(damage*1.2));
-	return str;
-}
-
-function capToLimit(x){
-	if(x < 1)
-		x = 1;
-	else if(x > 1000)
-		x = 1000;
-	return x;
+function getCombatStats(prefix) {
+	let strength = getLimitedNumber('#' + prefix + 'Str');
+	let modifier =  getLimitedNumber('#' + prefix + 'Mod', -90);
+	let health =  getLimitedNumber('#' + prefix + 'Hp');
+	let baseDmg = getBaseDamage(health);
+	strength = applyModifier(strength, modifier);
+	return [strength, baseDmg];
 }
 
 function getDamage(strength, opponentStrength, baseDamage){
-	let strengthRatio = ((strength) / opponentStrength);
+	let strengthRatio = strength / opponentStrength;
 
 	if(opponentStrength > strength)
 	{
-		strengthRatio = ((opponentStrength) / strength);
+		strengthRatio = opponentStrength / strength;
 	}
 
 	strengthRatio = (strengthRatio + 3) / 4;
@@ -58,12 +46,43 @@ function getDamage(strength, opponentStrength, baseDamage){
 	return capToLimit(baseDamage * strengthRatio);
 }
 
+function getResultString(attackerDmg, defenderDmg) {
+	let str = "attacker damage: ";
+	str += getDamageString(attackerDmg);
+	str += "\ndefender damage: ";
+	str += getDamageString(defenderDmg);
+	return str;
+}
+
+function applyModifier(strength, modifier) {
+	strength *= (100 + modifier) / 100;
+	return strength;
+}
+
+function getBaseDamage(health) {
+	return 30*(50 + health/2)/100;
+}
+
+function getLimitedNumber(elementName, bottom = 1, top = 1000){
+	let num = parseFloat($(elementName).val());
+	return capToLimit(num, bottom, top);
+}
+
+function getDamageString(damage) {
+	let str = "" + Math.round(capToLimit(damage*0.8));
+	str += "/" + Math.round(damage);
+	str += "/" + Math.round(capToLimit(damage*1.2));
+	return str;
+}
+
+function capToLimit(x, bottom = 1, top = 1000){
+	if(x < bottom)
+		return bottom;
+	else if(x > top)
+		return top;
+	return x;
+}
+
 function selectAll(){
 	this.setSelectionRange(0, this.value.length)
 }
-
-$(document).ready(function () {
-	calculate();
-	$('.unit-in').click(selectAll);
-	$('.calculate-button').click(calculate);
-});
