@@ -20,7 +20,7 @@ function calculateClick(){
 function getCombatStats(prefix) {
 	let strength = getLimitedNumber('#' + prefix + 'Str');
 	let modifier =  getLimitedNumber('#' + prefix + 'Mod', -90);
-	let health =  getLimitedNumber('#' + prefix + 'Hp');
+	let health =  getLimitedNumber('#' + prefix + 'Hp', 1, 100);
 	let baseDmg = getBaseDamage(health);
 	strength = applyModifier(strength, modifier);
 	return [strength, baseDmg];
