@@ -291,6 +291,7 @@ function draft($results, allowedCivsList) {
     $results.css("text-align", "left");
     pickCivs(allowedCivsList);
     resultHTML += "</table><div id='copyresults'><input class='submitbutton' name='copyres' id='copyres' type='button' value='Copy Results' /></div>";
+    resultHTML += "<div id='credits'><label>Based on Hellblazer's Civilization 5 Drafter</label></div>";
 
     $results.html(resultHTML);
 
