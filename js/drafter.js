@@ -42,6 +42,7 @@ allCivs["Finland"] = new Civ();
 allCivs["France"] = new Civ(true);
 allCivs["Franks"] = new Civ();
 allCivs["Gaul"] = new Civ();
+allCivs["Georgia"] = new Civ();
 allCivs["Germany"] = new Civ(true);
 allCivs["Golden"] = new Civ();
 allCivs["Goths"] = new Civ();
