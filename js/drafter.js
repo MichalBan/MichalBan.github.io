@@ -143,13 +143,17 @@ function createCivsStrings() {
 
 function fadeToNormal(civTd) {
     $(civTd).css("text-decoration", "none");
-    $(civTd).css("background-color", "#282828");
+    $(civTd).fadeTo("slow", 1, function () {
+    });
+}
+
+function fadeToGreen(civTd) {
+    $(civTd).css("text-decoration", "none");
     $(civTd).fadeTo("slow", 1, function () {
     });
 }
 
 function fadeToDark(civTd) {
-    $(civTd).css("background-color", "#1a1a1a");
     $(civTd).fadeTo("slow", 0.25, function () {
         $(civTd).css("text-decoration", "line-through");
     });
@@ -177,6 +181,16 @@ function civTdClick() {
             }
             updateBannedTitle();
         }
+    }
+}
+
+function civTdResultClick() {
+    if (animationFinished(this)) {
+		if (isDark(this)) {
+			fadeToGreen(this);
+		} else {
+			fadeToDark(this);
+		}
     }
 }
 
@@ -270,7 +284,7 @@ function enoughCivs() {
 function pickPlayerCivs(allowedCivsList) {
     for (let k = 1; k <= rndpicks; k++) {
         let thisciv = Math.floor(Math.random() * allowedCivsList.length);
-        resultHTML += "<td><img src='img/" + allowedCivsList[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivsList[thisciv] + "<td>";
+        resultHTML += "<td class='resultCiv'><img src='img/" + allowedCivsList[thisciv].toLowerCase() + ".png' alt=''/>" + allowedCivsList[thisciv] + "<td>";
         resultString += allowedCivsList[thisciv] + " or ";
         allowedCivsList.splice(thisciv, 1);
     }
@@ -295,6 +309,7 @@ function draft($results, allowedCivsList) {
     resultHTML += "<div id='credits'><label>Based on Hellblazer's Civilization 5 Drafter</label></div>";
 
     $results.html(resultHTML);
+    $results.find('.resultCiv').click(civTdResultClick);
 
     $("#copyTarget").val(resultString);
     $('#copyres').click(copyToClipboard);
